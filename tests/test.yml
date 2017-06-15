@@ -1,7 +1,7 @@
 ---
 
-- name: Playbook to install BWA tool
+- name: Playbook to install kanki-irodsclient
   hosts: localhost
   remote_user: root
   roles:
-    - bwa-ansible
+    - kanki-irodsclient-ansible
