@@ -1,5 +1,7 @@
 # kanki-irodsclient-ansible
 
+https://travis-ci.org/calvinmclean/kanki-irodsclient-ansible.svg?branch=master
+
 ### Description
 
 Ansible to install [kanki-irodsclient](https://github.com/ilarik/kanki-irodsclient)
