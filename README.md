@@ -1,6 +1,6 @@
-# kanki-irodsclient-ansible
+# ansible-kanki-irodsclient
 
-https://travis-ci.org/calvinmclean/kanki-irodsclient-ansible.svg?branch=master
+https://travis-ci.org/calvinmclean/ansible-kanki-irodsclient.svg?branch=master
 
 ### Description
 
