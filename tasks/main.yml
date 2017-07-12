@@ -71,7 +71,7 @@
       with_items:
         - { src: "files/irodsclient-{{ ansible_distribution }}", dest: "/usr/bin/irodsclient", owner: "root", mode: "0755" }
         - { src: "files/schema.xml", dest: "/etc/irods/schema.xml", owner: "root", mode: "0644" }
-        - { src: "files/irodsclient.png", dest: "/usr/share/icons/irodsclient.png", owner: "root" mode: "0644" }
+        - { src: "files/irodsclient.png", dest: "/usr/share/icons/irodsclient.png", owner: "root", mode: "0644" }
         - { src: "files/kanki.desktop", dest: "/home/{{ ATMOUSERNAME }}/Desktop/kanki.desktop", owner: "{{ ATMOUSERNAME }}", mode: "0755" }
         - { src: "files/kanki.desktop", dest: "/usr/share/applications/kanki.desktop", owner: "root", mode: "0644" }
 
