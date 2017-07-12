@@ -20,11 +20,11 @@
   set_fact: has_gui="{{ xsession.stat.exists and xterm.stat.exists }}"
 
 - block:
-    - name: Install dependencies
-      package:
-        state: present
-        name: "{{ item }}"
-      with_items: "{{ dependencies }}"
+    # - name: Install dependencies
+    #   package:
+    #     state: present
+    #     name: "{{ item }}"
+    #   with_items: "{{ dependencies }}"
 
     - name: Install iRods on CentOS
       yum:
@@ -57,25 +57,23 @@
         src: irods_environment.json.j2
         owner: "{{ ATMOUSERNAME }}"
 
-    - name: Install kanki-irodsclient on CentOS
-      yum:
-        name: "https://github.com/ilarik/kanki-irodsclient/releases/download/1.0.7/kanki-irodsclient-1.0.7-1.el6.x86_64.rpm"
-        state: present
-      when: ansible_distribution == "CentOS"
+    # - name: Install kanki-irodsclient on CentOS
+    #   yum:
+    #     name: "https://github.com/ilarik/kanki-irodsclient/releases/download/1.0.7/kanki-irodsclient-1.0.7-1.el6.x86_64.rpm"
+    #     state: present
+    #   when: ansible_distribution == "CentOS"
 
-    - block:
-        - name: Copy binary on Ubuntu
-          copy:
-            src: "files/irodsclient-ubuntu"
-            dest: /usr/bin/irodsclient
-            mode: 0755
+    - name: Copy binary on Ubuntu
+      copy:
+        src: "files/irodsclient-{{ ansible_distribution }}"
+        dest: /usr/bin/irodsclient
+        mode: 0755
 
-        - name: Copy schema.xml over
-          copy:
-            src: "files/ubuntu-schema.xml"
-            dest: /etc/irods/schema.xml
-            mode: 0644
-      when: ansible_distribution == "Ubuntu"
+    - name: Copy schema.xml over
+      copy:
+        src: "files/schema.xml"
+        dest: /etc/irods/schema.xml
+        mode: 0644
 
     - name: Copy icon image
       copy:
